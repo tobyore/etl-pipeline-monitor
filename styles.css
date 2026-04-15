@@ -1,0 +1,124 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #0f1117;
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+
+header {
+  background: linear-gradient(135deg, #0078d4, #005a9e);
+  padding: 2rem;
+  text-align: center;
+}
+header h1 { font-size: 1.8rem; color: #fff; }
+header .subtitle { color: rgba(255,255,255,0.85); margin-top: 0.3rem; font-size: 0.95rem; }
+
+main { max-width: 960px; margin: 2rem auto; padding: 0 1rem; }
+
+.card {
+  background: #1a1d27;
+  border: 1px solid #2a2d3a;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.card h2 { color: #0078d4; margin-bottom: 1rem; font-size: 1.3rem; }
+
+/* Flow Diagram */
+.flow-diagram { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0.5rem; }
+.flow-step {
+  background: #252836;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  min-width: 120px;
+  border: 2px solid #333;
+}
+.flow-step.trigger { border-color: #0078d4; }
+.flow-step.outcome { border-color: #00c853; }
+.step-icon { font-size: 1.8rem; }
+.step-label { font-weight: 700; margin: 0.3rem 0; font-size: 0.85rem; }
+.step-desc { font-size: 0.75rem; color: #999; }
+.flow-arrow { font-size: 1.5rem; color: #555; }
+
+/* Simulation */
+#triggerBtn {
+  background: #0078d4;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+#triggerBtn:hover { background: #005a9e; }
+#triggerBtn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+#timeline { margin-top: 1rem; }
+.tl-item {
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  border-left: 2px solid #333;
+  position: relative;
+  animation: fadeIn 0.3s ease;
+}
+.tl-item::before {
+  content: '';
+  width: 10px; height: 10px;
+  background: #0078d4;
+  border-radius: 50%;
+  position: absolute;
+  left: -6px; top: 0.7rem;
+}
+.tl-item.done::before { background: #00c853; }
+.tl-time { font-size: 0.75rem; color: #666; }
+.tl-text { font-size: 0.9rem; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Metrics */
+.metrics-row { display: flex; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap; }
+.metric {
+  flex: 1;
+  background: #252836;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  min-width: 100px;
+}
+.metric span { display: block; font-size: 1.8rem; font-weight: 700; color: #0078d4; }
+.metric label { font-size: 0.75rem; color: #888; }
+
+/* Table */
+table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+th { text-align: left; padding: 0.5rem; border-bottom: 2px solid #333; color: #888; font-size: 0.75rem; text-transform: uppercase; }
+td { padding: 0.5rem; border-bottom: 1px solid #222; }
+.sev-critical { color: #ff1744; font-weight: 700; }
+.sev-high { color: #ff9100; font-weight: 700; }
+.sev-medium { color: #ffd600; }
+.sev-low { color: #00c853; }
+.status-resolved { color: #00c853; }
+.status-open { color: #ff9100; }
+.status-investigating { color: #ffd600; }
+
+/* Iterations */
+.iteration { background: #252836; border-radius: 8px; padding: 1rem; margin-bottom: 0.75rem; }
+.iteration h3 { color: #ff9100; font-size: 0.95rem; margin-bottom: 0.3rem; }
+.iteration p { font-size: 0.85rem; margin-bottom: 0.3rem; }
+
+/* Architecture */
+.arch-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.arch-item { background: #252836; border-radius: 8px; padding: 1rem; }
+.arch-item h3 { color: #ff9100; font-size: 0.9rem; margin-bottom: 0.3rem; }
+.arch-item p { font-size: 0.8rem; color: #aaa; margin-bottom: 0.3rem; }
+.arch-item code { display: block; background: #1a1d27; padding: 0.4rem; border-radius: 4px; font-size: 0.75rem; color: #76ff03; margin-top: 0.3rem; word-break: break-all; }
+
+footer { text-align: center; padding: 2rem; color: #555; font-size: 0.8rem; }
+
+@media (max-width: 600px) {
+  .flow-diagram { flex-direction: column; }
+  .flow-arrow { transform: rotate(90deg); }
+  .arch-grid { grid-template-columns: 1fr; }
+}
